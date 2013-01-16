@@ -2,6 +2,8 @@ package net.niekel.nezeors;
 
 import org.andengine.entity.sprite.TiledSprite;
 
+
+
 public class Ship extends TiledSprite {
 	
 	private float mAngularVelocity;
