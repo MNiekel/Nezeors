@@ -27,13 +27,13 @@ public class RestartButton extends Rectangle {
 		Log.v("RestartButton", "restartType = " + restartType);
 		switch (restartType) {
 			case RESTART:
-				text = new Text(100, 100, SceneManager.defaultFont, "You died!\n\nClick screen to start new game, Back to quit game", new TextOptions(HorizontalAlign.CENTER), MainActivity.getActivity().getVertexBufferObjectManager());
+				text = new Text(100, 100, Resources.defaultFont, "You died!\n\nClick screen to start new game, Back to quit game", new TextOptions(HorizontalAlign.CENTER), MainActivity.getActivity().getVertexBufferObjectManager());
 				break;
 			case PAUSE:
-				text = new Text(100, 100, SceneManager.defaultFont, "Game paused\n\nClick screen to continue, Back to quit game", new TextOptions(HorizontalAlign.CENTER), MainActivity.getActivity().getVertexBufferObjectManager());
+				text = new Text(100, 100, Resources.defaultFont, "Game paused\n\nClick screen to continue, Back to quit game", new TextOptions(HorizontalAlign.CENTER), MainActivity.getActivity().getVertexBufferObjectManager());
 				break;
 			case NEXTLEVEL:
-				text = new Text(100, 100, SceneManager.defaultFont, "Congratulations, you destroyed all the asteroids!\n\nClick screen to start the next level, Back to quit game", new TextOptions(HorizontalAlign.CENTER), MainActivity.getActivity().getVertexBufferObjectManager());
+				text = new Text(100, 100, Resources.defaultFont, "Congratulations, you destroyed all the asteroids!\n\nClick screen to start the next level, Back to quit game", new TextOptions(HorizontalAlign.CENTER), MainActivity.getActivity().getVertexBufferObjectManager());
 				break;
 		}
 		text.setColor(Color.GREEN);

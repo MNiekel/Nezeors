@@ -11,7 +11,7 @@ public class Asteroid extends Sprite {
 	private boolean mPaused = false;
     
     public Asteroid() {
-        super(0, 0, SceneManager.asteroidBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
+        super(0, 0, Resources.asteroidBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
     }
     
     public void initialize() {

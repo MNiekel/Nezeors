@@ -13,7 +13,7 @@ public class SplashScene extends Scene {
 	
 	public SplashScene() {
 		setBackground(new Background(0, 0, 0));
-		Sprite splash = new Sprite(0, 0, SceneManager.splashBitmap, MainActivity.getActivity().getVertexBufferObjectManager()) {
+		Sprite splash = new Sprite(0, 0, Resources.splashBitmap, MainActivity.getActivity().getVertexBufferObjectManager()) {
 			@Override
 			protected void preDraw(GLState pGLState, Camera pCamera) {
 				super.preDraw(pGLState, pCamera);

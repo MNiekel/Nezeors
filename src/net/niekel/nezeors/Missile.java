@@ -14,7 +14,7 @@ public class Missile extends Sprite {
 	private final float LIFESPAN = 0.5f;
 
     public Missile() {
-    	super(0, 0, SceneManager.missileBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
+    	super(0, 0, Resources.missileBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
     }
     
     public boolean isAlive() {

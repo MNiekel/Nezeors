@@ -19,7 +19,7 @@ public class Ship extends TiledSprite {
 	private final float MAX_VELOCITY = 100;
 	
 	public Ship() {
-		super(0, 0, SceneManager.shipBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
+		super(0, 0, Resources.shipBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
 		setPosition(startX, startY);
 		setRotationCenter(mWidth / 2, mHeight / 2);
 		thisInstance = this;

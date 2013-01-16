@@ -60,7 +60,7 @@ public class GameScene extends Scene implements IOrientationListener {
 		attachChild(fireButton);
 		registerTouchArea(fireButton);
 		
-		scoreText = new Text(0, 0, SceneManager.defaultFont, "Score: "+score, 12, new TextOptions(HorizontalAlign.CENTER), MainActivity.getActivity().getVertexBufferObjectManager());
+		scoreText = new Text(0, 0, Resources.defaultFont, "Score: "+score, 12, new TextOptions(HorizontalAlign.CENTER), MainActivity.getActivity().getVertexBufferObjectManager());
 		scoreText.setColor(Color.WHITE);
 		scoreText.setHorizontalAlign(HorizontalAlign.LEFT);
 		attachChild(scoreText);
@@ -86,6 +86,7 @@ public class GameScene extends Scene implements IOrientationListener {
 			a = asteroidIterator.next();
 
 			if (a.checkCollision(ship)) {
+				Resources.explosionSound.play();
 				ship.detachSelf();
 				ship.setVisible(false);
 				ship.clearUpdateHandlers();
@@ -102,6 +103,7 @@ public class GameScene extends Scene implements IOrientationListener {
 					mMissilePool.recyclePoolItem(m);
 					missileIterator.remove();
 					hitAsteroid = true;
+					Resources.asteroidhitSound.play();
 					Log.v("GameScene", "asteroid hit by missile");
 					break;
 				}
@@ -204,6 +206,7 @@ public class GameScene extends Scene implements IOrientationListener {
 	
 	private void endGame(RestartType type) {
 		gameRunning = false;
+		Resources.thrustSound.stop();
 		clearMissiles();
 		restartButton = new RestartButton(type);
 		attachChild(restartButton);
@@ -213,7 +216,7 @@ public class GameScene extends Scene implements IOrientationListener {
 	}
 	
 	private void initBackground() {
-		Sprite bg = new Sprite(0, 0, SceneManager.bgBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
+		Sprite bg = new Sprite(0, 0, Resources.bgBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
 		
 		bg.setScaleCenter(0, 0);
 		bg.setScaleX(screenWidth / bg.getWidth());
@@ -273,12 +276,25 @@ public class GameScene extends Scene implements IOrientationListener {
 		}
 	}
 	
+	public void setThrusters(boolean on) {
+		if ((!ship.isVisible()) || (!gameRunning)) {
+			return;
+		}
+		ship.setThrusters(on);
+		if (on) {
+			Resources.thrustSound.play();
+		} else {
+			Resources.thrustSound.stop();
+		}
+	}
+	
 	public void fireMissile() {
 		if ((!ship.isVisible()) || (!gameRunning)) {
 			return;
 		}
 		
 		shots+= 1;
+		Resources.shotSound.play();
 		
 		double angle = Math.toRadians(ship.getRotation());
 		float velX = (float) (Math.cos(angle) * 10);

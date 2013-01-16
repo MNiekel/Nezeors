@@ -19,7 +19,7 @@ public class TitleScene extends Scene {
 	
 	public TitleScene() {
 		setBackground(new Background(0, 0, 0));
-		Sprite menu = new Sprite(0, 0, SceneManager.titleBitmap, MainActivity.getActivity().getVertexBufferObjectManager()) {
+		Sprite menu = new Sprite(0, 0, Resources.titleBitmap, MainActivity.getActivity().getVertexBufferObjectManager()) {
 			@Override
 			protected void preDraw(GLState pGLState, Camera pCamera) {
 				super.preDraw(pGLState, pCamera);

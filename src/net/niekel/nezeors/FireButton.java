@@ -10,7 +10,7 @@ public class FireButton extends Sprite {
 	private final float SCALE = 2;
 
 	public FireButton() {
-		super(0, 0, SceneManager.firebuttonBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
+		super(0, 0, Resources.firebuttonBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
 		setScaleCenter(getWidth() / 2, getHeight() / 2);
 		setScale(SCALE);		
 		setPosition(getWidth(), screenHeight - getScaleY()*getHeight());
