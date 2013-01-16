@@ -18,27 +18,16 @@ public class SceneManager {
 	
 	private SceneType currentScene;
 	
-	private static SceneManager thisInstance;
-
 	public enum SceneType {
 		SPLASH,
 		TITLE,
 		GAME
-	}
-
-	public static SceneManager getInstance() {
-		if (thisInstance == null) {
-			return new SceneManager(MainActivity.getActivity(), MainActivity.getActivity().getEngine());
-		} else {
-			return thisInstance;
-		}
 	}
 	
 	public SceneManager(BaseGameActivity pActivity, Engine pEngine) {
 		activity = pActivity;
 		engine = pEngine;
 		resources = new Resources();
-		thisInstance = this;
 	}
 
 	//Method loads all of the splash scene resources
@@ -61,7 +50,7 @@ public class SceneManager {
 	
 	//Method creates the Title Scene
 	public Scene createTitleScene() {
-		titleScene = new TitleScene();
+		titleScene = new TitleScene(this);
 		return titleScene;
 	}
 	

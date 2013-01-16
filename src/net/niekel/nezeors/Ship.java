@@ -12,9 +12,7 @@ public class Ship extends TiledSprite {
 
 	private boolean thrusters = false;
 	private boolean paused = false;
-	
-	private static Ship thisInstance;
-	
+		
 	private final float defaultAngularVelocity = 2;
 	private final float MAX_VELOCITY = 100;
 	
@@ -22,11 +20,6 @@ public class Ship extends TiledSprite {
 		super(0, 0, Resources.shipBitmap, MainActivity.getActivity().getVertexBufferObjectManager());
 		setPosition(startX, startY);
 		setRotationCenter(mWidth / 2, mHeight / 2);
-		thisInstance = this;
-	}
-	
-	public static Ship getInstance() {
-		return thisInstance;
 	}
 
 	@Override

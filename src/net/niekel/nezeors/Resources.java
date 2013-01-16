@@ -36,21 +36,8 @@ public class Resources {
 	public static Sound asteroidhitSound;
 	public static Sound thrustSound;
 	
-	private static Resources thisInstance;
 	private boolean splashLoaded = false;
 	private boolean gameLoaded = false;
-
-	public static Resources getInstance() {
-		if (thisInstance == null) {
-			return new Resources();
-		} else {
-			return thisInstance;
-		}
-	}
-	
-	public Resources() {
-		thisInstance = this;
-	}
 	
 	public void loadSplashResources(BaseGameActivity activity) {
 		BitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/");

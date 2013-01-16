@@ -13,11 +13,14 @@ import net.niekel.nezeors.SceneManager.SceneType;
 import android.util.Log;
 
 public class TitleScene extends Scene {
+	
+	private SceneManager manager;
 		
 	private final float screenWidth = MainActivity.CAMERA_WIDTH;;
 	private final float screenHeight = MainActivity.CAMERA_HEIGHT;
 	
-	public TitleScene() {
+	public TitleScene(SceneManager pManager) {
+		manager = pManager;
 		setBackground(new Background(0, 0, 0));
 		Sprite menu = new Sprite(0, 0, Resources.titleBitmap, MainActivity.getActivity().getVertexBufferObjectManager()) {
 			@Override
@@ -31,7 +34,6 @@ public class TitleScene extends Scene {
 
 			@Override
 	        public boolean onSceneTouchEvent(Scene pScene,TouchEvent pSceneTouchEvent) {
-	    		SceneManager manager = SceneManager.getInstance();
 	    		if (manager == null) {
 		    		Log.v("MenuScene", "manager == null");
 		    		return false;
