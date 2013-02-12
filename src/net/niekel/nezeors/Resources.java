@@ -18,6 +18,7 @@ import android.util.Log;
 
 public class Resources {
 	public static TextureRegion splashBitmap;
+	public static TextureRegion logoBitmap;
 	public static TextureRegion titleBitmap;
 	public static TextureRegion bgBitmap;
 	
@@ -41,10 +42,11 @@ public class Resources {
 	
 	public void loadSplashResources(BaseGameActivity activity) {
 		BitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/");
-		BitmapTextureAtlas splashMemory = new BitmapTextureAtlas(activity.getTextureManager(), 256, 256, TextureOptions.DEFAULT);
-		splashBitmap = BitmapTextureAtlasTextureRegionFactory.createFromAsset(splashMemory, activity, "splash.png", 0, 0);
-		splashMemory.load();
+		BitmapTextureAtlas logoMemory = new BitmapTextureAtlas(activity.getTextureManager(), 474, 180, TextureOptions.BILINEAR);
+		logoBitmap = BitmapTextureAtlasTextureRegionFactory.createFromAsset(logoMemory, activity, "logo.png", 0, 0);
+		logoMemory.load();
 		splashLoaded = true;
+
 	}
 	
 	public void loadGameResources(BaseGameActivity activity) {

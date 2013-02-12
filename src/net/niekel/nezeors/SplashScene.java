@@ -13,7 +13,7 @@ public class SplashScene extends Scene {
 	
 	public SplashScene() {
 		setBackground(new Background(0, 0, 0));
-		Sprite splash = new Sprite(0, 0, Resources.splashBitmap, MainActivity.getActivity().getVertexBufferObjectManager()) {
+		Sprite logo = new Sprite(0, 0, Resources.logoBitmap, MainActivity.getActivity().getVertexBufferObjectManager()) {
 			@Override
 			protected void preDraw(GLState pGLState, Camera pCamera) {
 				super.preDraw(pGLState, pCamera);
@@ -21,13 +21,13 @@ public class SplashScene extends Scene {
 			}
 		};
 		
-		splash.setScaleCenter(0, 0);
-		float scaleX = screenWidth / splash.getWidth() / 2;
-		float scaleY = screenHeight / splash.getHeight() / 2;
+		logo.setScaleCenter(0, 0);
+		float scaleX = screenWidth / logo.getWidth();
+		float scaleY = screenHeight / logo.getHeight();
 		float scale = Math.min(scaleX, scaleY);
-		splash.setScale(scale);
+		logo.setScale(scale);
 
-		splash.setPosition((screenWidth - splash.getWidthScaled()) / 2, (screenHeight - splash.getHeightScaled()) / 2);
-		attachChild(splash);
+		logo.setPosition((screenWidth - logo.getWidthScaled()) / 2, (screenHeight - logo.getHeightScaled()) / 2);
+		attachChild(logo);
 	}
 }
